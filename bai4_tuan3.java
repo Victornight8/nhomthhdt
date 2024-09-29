@@ -10,14 +10,13 @@ public class bai4_tuan3 {
         int b = sc.nextInt();
         System.out.printf("Nhap vao so thu ba: ");
         int c = sc.nextInt();
-        if (a < b && a < c) {
+        if (a < b && a < c) 
             System.out.println("so nho nhat trong ba so la: " + a);
-        } else {
-            if (b < c) {
+        else
+            if (b < c) 
                 System.out.println("so nho nhat trong ba so la: " + b);
-            } else {
+            else
                 System.out.println("so nho nhat trong ba so la: " + c);
-            }
-        }
-        }
+    }
 }
+
