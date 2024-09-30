@@ -1,7 +1,7 @@
 
 package baitap_tuan3;
 import java.util.Scanner;
-public class bai5_tuan3 {
+public class bai5 {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
         System.out.println("Vui long nhap canh thu nhat: ");
