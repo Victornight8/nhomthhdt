@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Test12 {
+public class Bai2_4 {
 
     static void IN () {
         for (int i = 1; i <= 10; i++) {
