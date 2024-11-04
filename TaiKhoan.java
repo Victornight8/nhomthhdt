@@ -1,77 +1,37 @@
-package taiKhoanNganHang;
+package taiKhoanNganHang01;
 
-import java.util.Scanner;
-
-public class TaiKhoan {
-	private int stk;
-	private String chutk;
+public abstract class TaiKhoan {
+	private long soTaiKhoan;
+	private String tenChuTaiKhoan;
 	private double soDu;
-	private String mk;
-	
-	public int getStk() {
-		return stk;
+	private String matKhau;
+
+	public TaiKhoan(long soTaiKhoan, String tenChuTaiKhoan, double soDu, String matKhau) {
+		this.soTaiKhoan = soTaiKhoan;
+		this.tenChuTaiKhoan = tenChuTaiKhoan;
+		this.soDu = soDu;
+		this.matKhau = matKhau;
 	}
-	public void setStk(int stk) {
-		this.stk = stk;
+
+	public long getSoTaiKhoan() {
+		return soTaiKhoan;
 	}
-	public String getChutk() {
-		return chutk;
-	}
-	public void setChutk(String chutk) {
-		this.chutk = chutk;
-	}
+
 	public double getSoDu() {
 		return soDu;
 	}
-	public void setSoDu(double soDu) {
-		this.soDu = soDu;
+
+	public String getMatKhau() {
+		return matKhau;
 	}
-	public String getMk() {
-		return mk;
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
 	}
-	public void setMk(String mk) {
-		this.mk = mk;
-	}
-	
-	public TaiKhoan() {
-		super();
-		setStk(1375349296);
-		setChutk("Nguyễn Văn A");
-		setSoDu(1200);
-		setMk("momy98@");
+
+	public void guiTien(double soTien) {
+		soDu += soTien;
 	}
 	
-	public void KiemTraSoDu() {
-		System.out.print("\nTài khoản của bạn còn: "+soDu+"VND");
-	}
-	
-	public void GuiTien(double tienGui) {
-		if(tienGui>0) {
-			soDu+=tienGui;
-			System.out.print("Đã gửi: "+tienGui+"VND");
-			KiemTraSoDu();
-		}else 
-			System.out.print("Số tiền không hợp lệ");
-	}
-	
-	public void RutTien(double tienRut) {
-		if(tienRut>0&&tienRut<=soDu) {
-			soDu-=tienRut;
-			System.out.print("Đã rút: "+tienRut+"VND");	
-			KiemTraSoDu();
-		}else
-			System.out.print("Tài khoàn của bạn không đủ tiền");
-	}
-	
-	public void DoiMatKhau(String matKhauCu,String matKhauMoi) {
-		if (this.mk.equals(matKhauCu)) 
-		/*kiểm tra xem nội dung của chuỗi matKhauCu có khớp với nội dung của thuộc tính mk 
-		(mật khẩu hiện tại) hay không. Nếu khớp, nó trả về true; ngược lại, nó trả về false*/
-		{
-            this.mk = matKhauMoi;
-            System.out.println("Đã đổi mật khẩu");
-        } else {
-            System.out.println("Bạn đã nhập sai mật khẩu");
-        }
-	}
+	public abstract boolean rutTien(double soTien);
 }
