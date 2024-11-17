@@ -2,11 +2,9 @@ package hospital_management;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Medicine {
+public abstract class Medicine {
     private static final AtomicInteger counter = new AtomicInteger(10000); 
     // Khởi tạo bộ đếm bắt đầu từ 10000 để đảm bảo ID luôn có 5 chữ số.
     protected String medicineID;
@@ -65,26 +63,7 @@ public class Medicine {
         this.price = price;
     }
 
-    public void input() {
-        Scanner scanner = new Scanner(System.in);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-        System.out.print("Nhập tên thuốc: ");
-        this.name = scanner.nextLine();
-
-        System.out.print("Nhập loại thuốc: ");
-        this.type = scanner.nextLine();
-
-        System.out.print("Nhập số lượng: ");
-        this.quantity = scanner.nextLong();
-
-        System.out.print("Nhập ngày hết hạn (yyyy-MM-dd): ");
-        String expiryDateStr = scanner.next();
-        this.expiryDate = LocalDate.parse(expiryDateStr, formatter);
-
-        System.out.print("Nhập giá: ");
-        this.price = scanner.nextBigDecimal();
-    }
+    public abstract void input();
 
     public void displayInfo() {
         System.out.println("Medicine ID: " + medicineID);
@@ -93,11 +72,5 @@ public class Medicine {
         System.out.println("Quantity: " + quantity);
         System.out.println("Expiry Date: " + expiryDate);
         System.out.println("Price: " + price + " USD");
-    }
-
-    public static void main(String[] args) {
-        Medicine med1 = new Medicine();
-        med1.input();
-        med1.displayInfo();
     }
 }
